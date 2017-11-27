@@ -1,6 +1,6 @@
 # Findit
 
-This project will provide an application for students of UFRN describe best books for their classes.
+This project will provide an application for students of UFRN discover the best books for their classes.
 
 ## Getting Started
 
