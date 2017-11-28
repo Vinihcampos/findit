@@ -1,0 +1,17 @@
+body{
+    /*background-color: #FAFAFA;*/
+    background-image: url(https://wallpaper.wiki/wp-content/uploads/2017/05/Open-book-2560x1600-photography-wallpaper.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container{
+    padding: 10px;
+}
+
+h1{
+    color: #FFFFFF;
+    text-shadow: 0 0 30px rgba(21,21,21,0.95);
+}
