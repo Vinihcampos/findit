@@ -4,11 +4,11 @@ import numpy as np
 def remove_not_approved(csv_class_period):
 	# Read class csv
 	print('--> Reading file: ' + csv_class_period + '.csv')
-	class_period = pd.read_csv('../raw_data/classes/' + csv_class_period + '.csv', delimiter=";")	
+	class_period = pd.read_csv('../raw_data/student-classes/' + csv_class_period + '.csv', delimiter=";")	
 	print('--> ' + csv_class_period + '.csv read!')
 	class_period = class_period[class_period.descricao.str.contains('APROVADO') == True]
 	print('--> Saving file: ' + csv_class_period + '.csv')
-	pd.DataFrame(class_period).to_csv('../data/classes/' + csv_class_period + '.csv', encoding='utf-8', index=False)
+	pd.DataFrame(class_period).to_csv('../data/student-classes/' + csv_class_period + '.csv', encoding='utf-8', index=False)
 	print('--> ' + csv_class_period + '.csv saved!')
 
 def main():
