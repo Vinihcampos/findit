@@ -5,20 +5,17 @@ print('--> Reading file: curricular_component.csv')
 curricular_component = pd.read_csv('../raw_data/curricular-component/curricular_component.csv', delimiter=";")	
 print('--> curricular_component.csv read!')
 
-classes_cc = pd.DataFrame(columns=['id_turma','id_componente_curricular','codigo','nome'])
+classes_cc = pd.DataFrame(columns=['id_turma','id_componente_curricular','codigo','nome','data_inicio','data_fim'])
 
 def add(csv_class_period):
 	# Read class csv
 	print('--> Reading file: ' + csv_class_period + '.csv')
-	class_period = pd.read_csv('../raw_data/classes/' + csv_class_period + '.csv', delimiter=";", error_bad_lines=False)	
+	class_period = pd.read_csv('../raw_data/classes/' + csv_class_period + '.csv', delimiter=";")	
 	print('--> ' + csv_class_period + '.csv read!')
 
-	index = 0
-
 	for _, row in class_period.iterrows():
-		for i, r in (curricular_component.loc[curricular_component['id_componente'] == row['id_componente_curricular']]).iterrows():
-			classes_cc.loc[index] = [row['id_turma'], r['id_componente'], r['codigo'], r['nome']]
-			index += 1
+		for _, r in (curricular_component.loc[curricular_component['id_componente'] == row['id_componente_curricular']]).iterrows():
+			classes_cc.loc[len(classes_cc.index)] = [row['id_turma'], r['id_componente'], r['codigo'], r['nome'], row['data_inicio'], row['data_fim']]
 
 def saveClassesCC():
 	print('--> Saving file: classes_curricular_component.csv')
